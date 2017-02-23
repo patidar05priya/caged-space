@@ -27,6 +27,7 @@ export class LoginPage {
 
   }
 
+
   // Sign in app user with email and password.
   public Login(isValid: boolean, email: string, password: string) {
 
@@ -46,7 +47,10 @@ export class LoginPage {
 
           this._util.StopSpinner();
 
-          this._util.ShowAlert('Login Error', 'Username or password is not correct.');
+          // faking out login for testing.
+          this._nav.setRoot(EventsPage);
+
+          // this._util.ShowAlert('Login Error', 'Username or password is not correct.');
 
         });
 
