@@ -46,11 +46,8 @@ export class LoginPage {
         }, error => {
 
           this._util.StopSpinner();
-
-          // faking out login for testing.
-          this._nav.setRoot(EventsPage);
-
-          // this._util.ShowAlert('Login Error', 'Username or password is not correct.');
+          
+          this._util.ShowAlert('Login Error', 'Username or password is not correct.');
 
         });
 

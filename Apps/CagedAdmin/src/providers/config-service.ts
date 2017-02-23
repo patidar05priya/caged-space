@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ConfigModel } from '../models/config';
+import { FunctionsConfigModel } from '../models/functionsConfig';
 
 @Injectable()
 export class ConfigService {
 
   private _config: ConfigModel;
+  private _functionsConfig: FunctionsConfigModel;
 
   constructor() {
 
     this._config = new ConfigModel();
+    this._functionsConfig = new FunctionsConfigModel();
 
-  }
-
-  get loginURL(): string {
-    return this._config.loginURL;
   }
 
   // MailGun API properties.
@@ -39,6 +38,11 @@ export class ConfigService {
 
   get mailGunURL(): string {
     return this._config.mailGunURL;
+  }
+
+  // Lambda Functions URLs
+  get userLoginUrl(): string {
+    return this._functionsConfig.userLoginUrl;
   }
 
 }

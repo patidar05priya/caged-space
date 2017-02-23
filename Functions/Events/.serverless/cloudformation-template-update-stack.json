@@ -142,7 +142,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/events/dev/1487880526411-2017-02-23T20:08:46.411Z/events.zip"
+          "S3Key": "serverless/events/dev/1487883097949-2017-02-23T20:51:37.949Z/events.zip"
         },
         "FunctionName": "events-dev-createEvent",
         "Handler": "handler.createEvent",
@@ -161,14 +161,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "CreateEventLambdaVersionBjopB9bRQ7V4cC15aThYUvIHY5Om7I07OAjXJt8Q": {
+    "CreateEventLambdaVersionWKezkkVHz53Qcome6rke3S04Wm9ioGi3JpWnvDGS3U": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateEventLambdaFunction"
         },
-        "CodeSha256": "Bjop+B9bRQ7V4cC15aTh//YUvIHY5Om7I07OAjXJt8Q="
+        "CodeSha256": "WKezkkVHz53Qcome6rke3S04Wm9io/Gi3JpWnvDGS3U="
       }
     },
     "UpdateEventLambdaFunction": {
@@ -178,7 +178,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/events/dev/1487880526411-2017-02-23T20:08:46.411Z/events.zip"
+          "S3Key": "serverless/events/dev/1487883097949-2017-02-23T20:51:37.949Z/events.zip"
         },
         "FunctionName": "events-dev-updateEvent",
         "Handler": "handler.updateEvent",
@@ -197,14 +197,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "UpdateEventLambdaVersionBjopB9bRQ7V4cC15aThYUvIHY5Om7I07OAjXJt8Q": {
+    "UpdateEventLambdaVersionWKezkkVHz53Qcome6rke3S04Wm9ioGi3JpWnvDGS3U": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateEventLambdaFunction"
         },
-        "CodeSha256": "Bjop+B9bRQ7V4cC15aTh//YUvIHY5Om7I07OAjXJt8Q="
+        "CodeSha256": "WKezkkVHz53Qcome6rke3S04Wm9io/Gi3JpWnvDGS3U="
       }
     },
     "DeleteEventLambdaFunction": {
@@ -214,7 +214,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/events/dev/1487880526411-2017-02-23T20:08:46.411Z/events.zip"
+          "S3Key": "serverless/events/dev/1487883097949-2017-02-23T20:51:37.949Z/events.zip"
         },
         "FunctionName": "events-dev-deleteEvent",
         "Handler": "handler.deleteEvent",
@@ -233,14 +233,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "DeleteEventLambdaVersionBjopB9bRQ7V4cC15aThYUvIHY5Om7I07OAjXJt8Q": {
+    "DeleteEventLambdaVersionWKezkkVHz53Qcome6rke3S04Wm9ioGi3JpWnvDGS3U": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DeleteEventLambdaFunction"
         },
-        "CodeSha256": "Bjop+B9bRQ7V4cC15aTh//YUvIHY5Om7I07OAjXJt8Q="
+        "CodeSha256": "WKezkkVHz53Qcome6rke3S04Wm9io/Gi3JpWnvDGS3U="
       }
     },
     "ApiGatewayRestApi": {
@@ -772,7 +772,7 @@
         ]
       }
     },
-    "ApiGatewayDeployment1487880526430": {
+    "ApiGatewayDeployment1487883097967": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -895,19 +895,19 @@
     "CreateEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateEventLambdaVersionBjopB9bRQ7V4cC15aThYUvIHY5Om7I07OAjXJt8Q"
+        "Ref": "CreateEventLambdaVersionWKezkkVHz53Qcome6rke3S04Wm9ioGi3JpWnvDGS3U"
       }
     },
     "UpdateEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateEventLambdaVersionBjopB9bRQ7V4cC15aThYUvIHY5Om7I07OAjXJt8Q"
+        "Ref": "UpdateEventLambdaVersionWKezkkVHz53Qcome6rke3S04Wm9ioGi3JpWnvDGS3U"
       }
     },
     "DeleteEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "DeleteEventLambdaVersionBjopB9bRQ7V4cC15aThYUvIHY5Om7I07OAjXJt8Q"
+        "Ref": "DeleteEventLambdaVersionWKezkkVHz53Qcome6rke3S04Wm9ioGi3JpWnvDGS3U"
       }
     },
     "ServiceEndpoint": {

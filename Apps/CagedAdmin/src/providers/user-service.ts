@@ -27,7 +27,7 @@ export class UserService {
 
     var credentials: any = { UserName: username, Password: password };
 
-    return this._http.post(this._config.loginURL, credentials)
+    return this._http.post(this._config.userLoginUrl, credentials)
       .map(res => {
         return this._ParseUserFromJSON(res);
       });

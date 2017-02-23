@@ -9,7 +9,8 @@ module.exports.createEvent = (event, context, callback) => {
       "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS 
     },
     body: JSON.stringify({
-      message: 'Event Created'
+      message: 'Event Created',
+      data: event.body
     }),
   };
 
@@ -26,7 +27,8 @@ module.exports.updateEvent = (event, context, callback) => {
       "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS 
     },
     body: JSON.stringify({
-      message: 'Event Updated'
+      message: 'Event Updated',
+      data: event.body
     }),
   };
 
@@ -43,7 +45,8 @@ module.exports.deleteEvent = (event, context, callback) => {
       "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS 
     },
     body: JSON.stringify({
-      message: 'Event Deleted'
+      message: 'Event Deleted',
+      data: event.body
     }),
   };
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { UtilityService } from '../../providers/utility-service';
 
 @Component({
   selector: 'page-events',
@@ -7,10 +8,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class EventsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(private _util: UtilityService) {}
 
   ionViewDidLoad() {
+
+    this._util.StopSpinner();
     console.log('ionViewDidLoad EventsPage');
+    
   }
 
 }
