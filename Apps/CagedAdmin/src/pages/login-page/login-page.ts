@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { UserService } from '../../providers/user-service';
 import { UtilityService } from '../../providers/utility-service';
 import { UserModel } from '../../models/user';
-import { EventsPage } from '../pages/events-page/events-page';
+import { EventsPage } from '../../pages/events-page/events-page';
 import { FormBuilder, Validators } from '@angular/forms';
 
 
@@ -19,10 +19,6 @@ export class LoginPage {
   errorMessage: string;
 
   constructor(private _userService: UserService, private _util: UtilityService, private _fb: FormBuilder, private _nav: NavController) {
-
-  }
-
-  ionViewLoaded() {
 
     this.loginForm = this._fb.group({
       email: ['', Validators.required],

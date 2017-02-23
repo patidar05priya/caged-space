@@ -5,6 +5,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login-page/login-page';
 import { EventsPage } from '../pages/events-page/events-page';
+import { EventDetailsPage } from '../pages/event-details-page/event-details-page';
 
 // Services.
 import { ConfigService } from '../providers/config-service';
@@ -17,7 +18,8 @@ import { UserService } from '../providers/user-service';
   declarations: [
     MyApp,
     LoginPage,
-    EventsPage
+    EventsPage,
+    EventDetailsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +28,8 @@ import { UserService } from '../providers/user-service';
   entryComponents: [
     MyApp,
     LoginPage,
-    EventsPage
+    EventsPage,
+    EventDetailsPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

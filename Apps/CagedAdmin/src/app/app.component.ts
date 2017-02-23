@@ -4,6 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { LoginPage } from '../pages/login-page/login-page';
 import { EventsPage } from '../pages/events-page/events-page';
+import { EventDetailsPage } from '../pages/event-details-page/event-details-page';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.menuPages = [
       { title: 'Sign In', component: LoginPage },
-      { title: 'All Events', component: EventsPage }
+      { title: 'All Events', component: EventsPage },
+      { title: 'Event Details', component: EventDetailsPage }
     ];
 
   }
