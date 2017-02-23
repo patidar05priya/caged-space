@@ -14,8 +14,6 @@
 
     <ion-card-content>
 
-      <div class="heading">Sign In to Caged Space</div>
-
       <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm.valid, loginForm.controls.email.value, loginForm.controls.password.value)">
 
         <div padding>
@@ -33,12 +31,7 @@
         </div>
 
         <div padding>
-          <ion-buttons end>
-            <button class="nav-button" clear type="submit">
-            Login
-            <ion-icon name="arrow-forward"></ion-icon>
-            </button>
-          </ion-buttons>
+          <button ion-button block type="submit">Sign In</button>
         </div>
 
       </form>
