@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UtilityService } from '../../providers/utility-service';
+import { EventsService } from '../../providers/events-service';
+import { EventModel } from '../../models/event';
 
 @Component({
   selector: 'page-events',
@@ -8,13 +10,21 @@ import { UtilityService } from '../../providers/utility-service';
 })
 export class EventsPage {
 
-  constructor(private _util: UtilityService) {}
+  private _events: Array<EventModel>;
+
+  constructor(private _util: UtilityService, private _eventsService: EventsService) {}
 
   ionViewDidLoad() {
 
-    this._util.StopSpinner();
-    console.log('ionViewDidLoad EventsPage');
-    
+    // Subscribe to events$ Observable.
+    this._eventsService.events$.subscribe(events => {
+
+      this._events = events;
+
+      this._util.StopSpinner();
+
+    });
+
   }
 
 }

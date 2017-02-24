@@ -1,5 +1,3 @@
-import { FunctionModel } from '../models/function'
-
 // Lambda functions url config model.
 export class FunctionsConfigModel {
 

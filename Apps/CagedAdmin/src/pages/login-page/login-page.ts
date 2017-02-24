@@ -51,6 +51,8 @@ export class LoginPage {
 
         });
 
+        alert("test");
+
     }
 
   }
