@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import { EventModel } from '../models/event';
 
 @Injectable()
-export class EventsService {
+export class EventService {
 
   private _events$: BehaviorSubject<Array<EventModel>>;
 

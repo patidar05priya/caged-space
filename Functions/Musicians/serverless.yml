@@ -1,0 +1,18 @@
+
+service: events 
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: us-east-1
+
+functions:
+  getMusicians:
+    handler: handler.getMusicians
+    events:
+      - http:
+          path: musicians
+          method: get
+          cors: true
+

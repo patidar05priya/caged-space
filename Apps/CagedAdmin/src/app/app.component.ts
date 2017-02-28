@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { LoginPage } from '../pages/login-page/login-page';
+import { MusiciansPage } from '../pages/musicians-page/musicians-page';
 import { EventsPage } from '../pages/events-page/events-page';
 import { EventDetailsPage } from '../pages/event-details-page/event-details-page';
 
@@ -12,7 +13,7 @@ import { EventDetailsPage } from '../pages/event-details-page/event-details-page
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = MusiciansPage;
 
   menuPages: Array<{title: string, component: any}>;
 
@@ -21,9 +22,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.menuPages = [
-      { title: 'Sign In', component: LoginPage },
-      { title: 'All Events', component: EventsPage },
-      { title: 'Event Details', component: EventDetailsPage }
+      { title: 'Sign Out', component: LoginPage },
+      { title: 'Events', component: EventsPage },
+      { title: 'Musicians', component: MusiciansPage }
     ];
 
   }

@@ -1,22 +1,29 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { MusicianModel } from '../../models/musician';
+import { MusicianService } from '../../providers/musician-service';
+import { UtilityService } from '../../providers/utility-service';
 
-/*
-  Generated class for the MusiciansPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
-  selector: 'page-musicians-page',
+  selector: 'page-musicians',
   templateUrl: 'musicians-page.html'
 })
-export class MusiciansPagePage {
+export class MusiciansPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  private musicians: Array<MusicianModel>
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MusiciansPagePage');
+  constructor(private _util: UtilityService, private _musicianService: MusicianService) { }
+
+  ionViewDidEnter() {
+
+    this._musicianService.musicians$.subscribe(musicians => {
+
+      this.musicians = musicians;
+
+    });
+
+    this._util.StopSpinner();
+
   }
 
 }

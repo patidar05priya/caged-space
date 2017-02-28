@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { UserService } from '../../providers/user-service';
 import { UtilityService } from '../../providers/utility-service';
 import { UserModel } from '../../models/user';
-import { EventsPage } from '../../pages/events-page/events-page';
+import { MusiciansPage } from '../../pages/musicians-page/musicians-page';
 import { FormBuilder, Validators } from '@angular/forms';
 
 
@@ -41,7 +41,7 @@ export class LoginPage {
         .subscribe(user => {
 
           // Navigate to Home Page after successful loggin in.
-          this._nav.setRoot(EventsPage);
+          this._nav.setRoot(MusiciansPage);
 
         }, error => {
 

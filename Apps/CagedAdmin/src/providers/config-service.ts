@@ -45,4 +45,8 @@ export class ConfigService {
     return this._functionsConfig.userLoginUrl;
   }
 
+  get getMusiciansUrl(): string {
+    return this._functionsConfig.getMusiciansUrl;
+  }
+
 }

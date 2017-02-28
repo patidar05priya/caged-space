@@ -1,18 +1,31 @@
-<!--
-  Generated template for the MusiciansPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>MusiciansPage</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Musicians</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list>
+
+    <ion-item *ngFor="let musician of musicians" no-lines>
+
+      <ion-thumbnail item-left>
+        <img src="../../assets/thumbnail-totoro.png">
+      </ion-thumbnail>
+
+      <h2>{{musician.name}}</h2>
+      <p>{{musician.description}}</p>
+      <p>{{musician.instrument}}</p>
+
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>
