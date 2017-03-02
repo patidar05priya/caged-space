@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { AngularFireModule } from 'angularfire2';
 
 // Pages.
 import { MyApp } from './app.component';
@@ -16,6 +17,15 @@ import { UserService } from '../providers/user-service';
 import { MusicianService } from '../providers/musician-service';
 import { EventService } from '../providers/event-service';
 
+// Firebase
+export const firebaseConfig = {
+  apiKey: "AIzaSyAgvU-ZNdAMYJaw_kTK-uyWMIGHwCZtmMM",
+  authDomain: "cagedspace-9d75f.firebaseapp.com",
+  databaseURL: "https://cagedspace-9d75f.firebaseio.com",
+  storageBucket: "cagedspace-9d75f.appspot.com",
+  messagingSenderId: "464147072174"
+};
+
 // Bootstraping.
 @NgModule({
   declarations: [
@@ -26,7 +36,8 @@ import { EventService } from '../providers/event-service';
     MusiciansPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -5,6 +5,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { ConfigService } from '../providers/config-service';
 import 'rxjs/add/operator/map';
 import { MusicianModel } from '../models/musician';
+import { MusicianCreationModel } from '../models/musicianCreation';
+import { AngularFire } from 'angularfire2';
 
 @Injectable()
 export class MusicianService {
@@ -19,7 +21,7 @@ export class MusicianService {
     musicians: Array<MusicianModel>
   };
 
-  constructor(private _http: Http, private _config: ConfigService) {
+  constructor(private _http: Http, private _config: ConfigService, private _af: AngularFire) {
 
     this._musiciansStore = { musicians: new Array<MusicianModel>() };
 
@@ -27,36 +29,38 @@ export class MusicianService {
 
     this.musicians$ = this._musicians$.asObservable();
 
-    this._getMusicians()
-      .subscribe(musicians => {
-
-
-      }, error => {
-
-      });
+    this._getMusicians();
 
   }
 
   // Initiates retrieval of CagedSpace musicians.
-  private _getMusicians(): Observable<Array<MusicianModel>> {
+  private _getMusicians(): void {
 
-    return this._http.get(this._config.getMusiciansUrl)
-      .map(res => {
-        return this._MapMusicians(res);
-      });
+    this._af.database.list('musicians').subscribe(newMusicians => {
+
+      this._musiciansStore = { musicians: newMusicians };
+
+      this._musicians$.next(this._musiciansStore.musicians);
+
+    });
 
   }
 
-  // Maps raw JSON data to an array of EventModels.
-  private _MapMusicians(response: any) {
+  // Maps raw JSON data to MusicianModels.
+  private _MapMusician(response: any) {
 
-    let newMusicians: Array<MusicianModel> = response.json().data;
+    let newMusician: MusicianModel = response.json().data;
 
-    this._musiciansStore.musicians = newMusicians;
+    return newMusician;
 
-    this._musicians$.next(this._musiciansStore.musicians);
+  }
 
-    return this._musiciansStore.musicians;
+  public addMusician(model: MusicianCreationModel): Observable<MusicianModel> {
+
+    return this._http.post(this._config.addMusicianUrl, model)
+      .map(res => {
+        return this._MapMusician(res);
+      });
 
   }
 

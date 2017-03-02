@@ -1,5 +1,5 @@
 
-service: events 
+service: musicians 
 
 provider:
   name: aws
@@ -8,11 +8,11 @@ provider:
   region: us-east-1
 
 functions:
-  getMusicians:
-    handler: handler.getMusicians
+  addMusician:
+    handler: handler.addMusician
     events:
       - http:
           path: musicians
-          method: get
+          method: post
           cors: true
 
