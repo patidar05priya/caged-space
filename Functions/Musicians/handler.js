@@ -33,8 +33,6 @@ module.exports.addMusician = (event, context, callback) => {
 
       callback(null, response);
 
-      firebase.database().goOffline();
-
     });
 
   });

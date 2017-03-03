@@ -1,22 +1,20 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { MusicianModel } from '../../models/musician';
 
-/*
-  Generated class for the MusicianDetailsPage page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
-  selector: 'page-musician-details-page',
+  selector: 'page-musician-details',
   templateUrl: 'musician-details-page.html'
 })
-export class MusicianDetailsPagePage {
+export class MusicianDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  public musician: MusicianModel;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MusicianDetailsPagePage');
+  constructor(private _navCtrl: NavController, private _navParams: NavParams) {
+
+    this.musician = this._navParams.get('model');
+
   }
 
 }

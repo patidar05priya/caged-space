@@ -17,7 +17,7 @@ export class MusicianService {
   public musicians$: Observable<Array<MusicianModel>>;
 
   // Local musicians cache.
-  public _musiciansStore: {
+  private _musiciansStore: {
     musicians: Array<MusicianModel>
   };
 

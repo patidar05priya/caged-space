@@ -14,7 +14,7 @@
 
   <ion-list>
 
-    <ion-item *ngFor="let musician of musicians" no-lines>
+    <ion-item *ngFor="let musician of musicians" no-lines (click)="openDetails(musician)">
 
       <ion-thumbnail item-left>
         <img src="../../assets/thumbnail-totoro.png">

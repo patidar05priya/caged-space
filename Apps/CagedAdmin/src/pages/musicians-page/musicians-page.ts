@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MusicianModel } from '../../models/musician';
 import { MusicianService } from '../../providers/musician-service';
-import { UtilityService } from '../../providers/utility-service';
+import { MusicianDetailsPage } from '../../pages/musician-details-page/musician-details-page';
 
 @Component({
   selector: 'page-musicians',
@@ -12,7 +12,7 @@ export class MusiciansPage {
 
   private musicians: Array<MusicianModel>
 
-  constructor(private _util: UtilityService, private _musicianService: MusicianService) { }
+  constructor(private _musicianService: MusicianService, private _nav: NavController) { }
 
   ionViewDidEnter() {
 
@@ -22,7 +22,13 @@ export class MusiciansPage {
 
     });
 
-    this._util.StopSpinner();
+  }
+
+  openDetails(detailsModel: MusicianModel) {
+
+    this._nav.push(MusicianDetailsPage, {
+      model: detailsModel
+    });
 
   }
 

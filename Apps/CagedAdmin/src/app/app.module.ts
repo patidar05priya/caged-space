@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login-page/login-page';
 import { EventsPage } from '../pages/events-page/events-page';
 import { MusiciansPage } from '../pages/musicians-page/musicians-page';
 import { EventDetailsPage } from '../pages/event-details-page/event-details-page';
+import { MusicianDetailsPage } from '../pages/musician-details-page/musician-details-page';
 
 // Services.
 import { ConfigService } from '../providers/config-service';
@@ -33,7 +34,8 @@ export const firebaseConfig = {
     LoginPage,
     EventsPage,
     EventDetailsPage,
-    MusiciansPage
+    MusiciansPage,
+    MusicianDetailsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -45,7 +47,8 @@ export const firebaseConfig = {
     LoginPage,
     EventsPage,
     EventDetailsPage,
-    MusiciansPage
+    MusiciansPage,
+    MusicianDetailsPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
