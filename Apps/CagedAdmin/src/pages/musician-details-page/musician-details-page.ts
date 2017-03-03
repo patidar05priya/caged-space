@@ -13,6 +13,12 @@ export class MusicianDetailsPage {
 
   constructor(private _navCtrl: NavController, private _navParams: NavParams) {
 
+    this.musician = new MusicianModel();
+
+  }
+
+  ionViewDidEnter() {
+
     this.musician = this._navParams.get('model');
 
   }
