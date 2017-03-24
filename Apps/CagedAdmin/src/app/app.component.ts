@@ -3,9 +3,11 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { LoginPage } from '../pages/login-page/login-page';
-import { MusiciansPage } from '../pages/musicians-page/musicians-page';
 import { EventsPage } from '../pages/events-page/events-page';
-import { EventDetailsPage } from '../pages/event-details-page/event-details-page';
+import { MusiciansPage } from '../pages/musicians-page/musicians-page';
+import { BeaconsPage } from '../pages/beacons-page/beacons-page';
+import { MusicStreamsPage } from '../pages/music-streams-page/music-streams-page';
+import { UsersPage } from '../pages/users-page/users-page';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,16 +17,19 @@ export class MyApp {
 
   rootPage: any = MusiciansPage;
 
-  menuPages: Array<{title: string, component: any}>;
+  menuPages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // Populates side menu.
     this.menuPages = [
-      { title: 'Sign Out', component: LoginPage },
-      { title: 'Events', component: EventsPage },
-      { title: 'Musicians', component: MusiciansPage }
+      { title: 'Sign Out', component: LoginPage, icon: 'log-out' },
+      { title: 'Events', component: EventsPage, icon: 'calendar' },
+      { title: 'Musicians', component: MusiciansPage, icon: 'musical-note' },
+      { title: 'Streams', component: BeaconsPage, icon: 'options' },
+      { title: 'Beacons', component: MusicStreamsPage, icon: 'bluetooth' },
+      { title: 'Users', component: UsersPage, icon: 'person' }
     ];
 
   }

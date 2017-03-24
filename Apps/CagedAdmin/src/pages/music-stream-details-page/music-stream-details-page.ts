@@ -8,15 +8,15 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-music-stream-details-page',
+  selector: 'page-music-stream-details',
   templateUrl: 'music-stream-details-page.html'
 })
-export class MusicStreamDetailsPagePage {
+export class MusicStreamDetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MusicStreamDetailsPagePage');
+    console.log('ionViewDidLoad MusicStreamDetailsPage');
   }
 
 }

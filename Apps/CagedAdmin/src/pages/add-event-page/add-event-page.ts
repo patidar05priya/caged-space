@@ -2,21 +2,21 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
-  Generated class for the MusicStreamsPage page.
+  Generated class for the AddEventPage page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-music-streams',
-  templateUrl: 'music-streams-page.html'
+  selector: 'page-add-event',
+  templateUrl: 'add-event-page.html'
 })
-export class MusicStreamsPage {
+export class AddEventPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MusicStreamsPage');
+    console.log('ionViewDidLoad AddEventPage');
   }
 
 }

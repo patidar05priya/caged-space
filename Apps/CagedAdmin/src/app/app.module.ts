@@ -5,10 +5,26 @@ import { AngularFireModule } from 'angularfire2';
 // Pages.
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login-page/login-page';
+
 import { EventsPage } from '../pages/events-page/events-page';
-import { MusiciansPage } from '../pages/musicians-page/musicians-page';
+import { AddEventPage } from '../pages/add-event-page/add-event-page';
 import { EventDetailsPage } from '../pages/event-details-page/event-details-page';
+
+import { MusiciansPage } from '../pages/musicians-page/musicians-page';
+import { AddMusicianPage } from '../pages/add-musician-page/add-musician-page';
 import { MusicianDetailsPage } from '../pages/musician-details-page/musician-details-page';
+
+import { BeaconsPage } from '../pages/beacons-page/beacons-page';
+import { AddBeaconPage } from '../pages/add-beacon-page/add-beacon-page';
+import { BeaconDetailsPage } from '../pages/beacon-details-page/beacon-details-page';
+
+import { MusicStreamsPage } from '../pages/music-streams-page/music-streams-page';
+import { AddMusicStreamPage } from '../pages/add-music-stream-page/add-music-stream-page';
+import { MusicStreamDetailsPage } from '../pages/music-stream-details-page/music-stream-details-page';
+
+import { UsersPage } from '../pages/users-page/users-page';
+import { AddUserPage } from '../pages/add-user-page/add-user-page';
+import { UserDetailsPage } from '../pages/user-details-page/user-details-page';
 
 // Services.
 import { ConfigService } from '../providers/config-service';
@@ -33,9 +49,20 @@ export const firebaseConfig = {
     MyApp,
     LoginPage,
     EventsPage,
+    AddEventPage,
     EventDetailsPage,
     MusiciansPage,
-    MusicianDetailsPage
+    AddMusicianPage,
+    MusicianDetailsPage,
+    BeaconsPage,
+    AddBeaconPage,
+    BeaconDetailsPage,
+    MusicStreamsPage,
+    AddMusicStreamPage,
+    MusicStreamDetailsPage,
+    UsersPage,
+    AddUserPage,
+    UserDetailsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,9 +73,20 @@ export const firebaseConfig = {
     MyApp,
     LoginPage,
     EventsPage,
+    AddEventPage,
     EventDetailsPage,
     MusiciansPage,
-    MusicianDetailsPage
+    AddMusicianPage,
+    MusicianDetailsPage,
+    BeaconsPage,
+    AddBeaconPage,
+    BeaconDetailsPage,
+    MusicStreamsPage,
+    AddMusicStreamPage,
+    MusicStreamDetailsPage,
+    UsersPage,
+    AddUserPage,
+    UserDetailsPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

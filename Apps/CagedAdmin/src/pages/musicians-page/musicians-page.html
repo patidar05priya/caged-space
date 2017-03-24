@@ -9,10 +9,13 @@
 
 </ion-header>
 
+<ion-fab bottom right *ngIf="_isMobileDevice">
+  <button ion-fab color="secondary" (click)="addNewMusician()"><ion-icon name="add"></ion-icon></button>
+</ion-fab>
 
 <ion-content padding>
 
-  <ion-list>
+  <ion-list *ngIf="_isMobileDevice">
 
     <ion-item *ngFor="let musician of musicians" no-lines (click)="openDetails(musician)">
 
@@ -27,5 +30,43 @@
     </ion-item>
 
   </ion-list>
+
+  <ion-grid *ngIf="!_isMobileDevice">
+    <ion-row>
+
+      <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3 (click)="openDetails()">
+
+        <ion-card>
+
+          <img src="../../assets/new_user.png" />
+
+          <ion-card-content>
+
+            <ion-card-title>
+              Add New User
+            </ion-card-title>
+
+          </ion-card-content>
+
+        </ion-card>
+
+      </ion-col>
+
+      <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3 *ngFor="let musician of musicians" (click)="openDetails(musician)">
+
+        <ion-card>
+          <img src="../../assets/thumbnail-totoro.png" />
+          <ion-card-content>
+
+            <ion-card-title>
+              {{musician.name}}
+            </ion-card-title>
+
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

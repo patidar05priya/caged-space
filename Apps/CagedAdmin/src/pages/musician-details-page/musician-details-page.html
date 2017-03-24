@@ -9,19 +9,27 @@
 
 <ion-content padding>
 
-  <ion-card>
-    <img src="../../assets/thumbnail-totoro.png" />
-    <ion-card-content>
-      <ion-card-title>
-        {{musician.name}}
-      </ion-card-title>
-      <p>
-        <strong>Description: </strong>{{musician.description}}
-      </p>
-      <p>
-        <strong>Instrument: </strong>{{musician.instrument}}
-      </p>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col col-sm-12 col-md-10 col-lg-8 col-xl-6>
+
+        <ion-card>
+          <img src="../../assets/thumbnail-totoro.png" />
+          <ion-card-content>
+            <ion-card-title>
+              {{musician.name}}
+            </ion-card-title>
+            <p>
+              <strong>Description: </strong>{{musician.description}}
+            </p>
+            <p>
+              <strong>Instrument: </strong>{{musician.instrument}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
