@@ -1,0 +1,42 @@
+
+service: events 
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: us-east-1
+
+functions:
+  createEvent:
+    handler: handler.createEvent
+    events:
+      - http:
+          path: events
+          method: post
+          cors: true
+  updateEvent:
+    handler: handler.updateEvent
+    events:
+      - http:
+          path: events/{id}
+          method: put
+          integration: lambda
+          request:
+            parameters:
+              paths:
+                id: true
+          cors: true
+  deleteEvent:
+    handler: handler.deleteEvent
+    events:
+      - http:
+          path: events/{id}
+          method: delete
+          integration: lambda
+          request:
+            parameters:
+              paths:
+                id: true
+          cors: true
+

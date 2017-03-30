@@ -1,0 +1,25 @@
+
+service: musicians 
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: us-east-1
+
+functions:
+  addMusician:
+    handler: handler.addMusician
+    events:
+      - http:
+          path: musicians
+          method: post
+          cors: true
+  updateMusician:
+    handler: handler.updateMusician
+    events:
+      - http:
+          path: musicians
+          method: put
+          cors: true
+
