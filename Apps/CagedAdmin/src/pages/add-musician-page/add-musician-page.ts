@@ -1,22 +1,54 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MusicianService } from '../../providers/musician-service';
+import { UtilityService } from '../../providers/utility-service';
 
-/*
-  Generated class for the AddMusicianPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-add-musician',
   templateUrl: 'add-musician-page.html'
 })
 export class AddMusicianPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  addMusicianForm: any;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddMusicianPage');
+  constructor(private _musicianService: MusicianService, private _util: UtilityService, private _nav: NavController, private _navParams: NavParams, private _fb: FormBuilder) {
+
+    this.addMusicianForm = this._fb.group({
+      name: ['', Validators.required],
+      instrument: ['', Validators.required],
+      description: ['', Validators.required]
+    });
+
   }
+
+  // Add New Musician.
+  public addMusician(isValid: boolean) {
+
+    if (isValid) {
+
+      // Instantiate spinner. 
+      this._util.StartSpinner('Adding New Musician...');
+
+      this._musicianService.addMusician(this.addMusicianForm.value)
+        .subscribe(musician => {
+
+          this._util.StopSpinner();
+
+          // Navigate back to musicians list page.
+          this._nav.pop();
+
+        }, error => {
+
+          this._util.StopSpinner();
+
+          this._util.ShowAlert('Internal Error', 'Could not add new Musician.');
+
+        });
+
+    }
+
+  }
+
 
 }

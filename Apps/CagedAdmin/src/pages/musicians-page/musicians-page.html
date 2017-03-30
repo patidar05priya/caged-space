@@ -24,9 +24,8 @@
       </ion-thumbnail>
 
       <h2>{{musician.name}}</h2>
-      <p>{{musician.description}}</p>
-      <p>{{musician.instrument}}</p>
-
+      <p>Instrument: {{musician.instrument}}</p>
+      
     </ion-item>
 
   </ion-list>
@@ -34,7 +33,7 @@
   <ion-grid *ngIf="!_isMobileDevice">
     <ion-row>
 
-      <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3 (click)="openDetails()">
+      <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3 (click)="addNewMusician()">
 
         <ion-card>
 
@@ -43,7 +42,7 @@
           <ion-card-content>
 
             <ion-card-title>
-              Add New User
+              Add New Musician
             </ion-card-title>
 
           </ion-card-content>

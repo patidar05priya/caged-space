@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { MusicianModel } from '../../models/musician';
 import { MusicianService } from '../../providers/musician-service';
 import { MusicianDetailsPage } from '../../pages/musician-details-page/musician-details-page';
+import { AddMusicianPage } from '../../pages/add-musician-page/add-musician-page';
 
 @Component({
   selector: 'page-musicians',
@@ -40,9 +41,7 @@ export class MusiciansPage {
 
   addNewMusician() {
 
-    this._nav.push(MusicianDetailsPage, {
-      model: null
-    });
+    this._nav.push(AddMusicianPage);
 
   }
 

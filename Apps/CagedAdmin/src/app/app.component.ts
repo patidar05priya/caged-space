@@ -27,8 +27,8 @@ export class MyApp {
       { title: 'Sign Out', component: LoginPage, icon: 'log-out' },
       { title: 'Events', component: EventsPage, icon: 'calendar' },
       { title: 'Musicians', component: MusiciansPage, icon: 'musical-note' },
-      { title: 'Streams', component: BeaconsPage, icon: 'options' },
-      { title: 'Beacons', component: MusicStreamsPage, icon: 'bluetooth' },
+      { title: 'Streams', component: MusicStreamsPage, icon: 'options' },
+      { title: 'Beacons', component: BeaconsPage, icon: 'bluetooth' },
       { title: 'Users', component: UsersPage, icon: 'person' }
     ];
 

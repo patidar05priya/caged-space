@@ -18,6 +18,9 @@ module.exports.addMusician = (event, context, callback) => {
 
     firebase.database().ref('musicians/' + newKey).once('value').then(function (snapshot) {
 
+      let musician = snapshot.val();
+      musician.id = newKey;
+
       const response = {
         statusCode: 200,
         headers: {
@@ -26,8 +29,46 @@ module.exports.addMusician = (event, context, callback) => {
         },
         body: JSON.stringify({
           message: 'Musician Created',
-          key: newKey,
-          data: snapshot.val()
+          data: musician
+        })
+      };
+
+      callback(null, response);
+
+    });
+
+  });
+
+};
+
+module.exports.updateMusician = (event, context, callback) => {
+
+  context.callbackWaitsForEmptyEventLoop = false;  //<---Important
+
+  // Initialize Firebase
+  initializeFirebase();
+
+  let key = JSON.parse(event.body).id;
+
+  var updates = {};
+  updates['/musicians/' + key] = JSON.parse(event.body);
+
+  firebase.database().ref().update(updates).then(function () {
+
+    firebase.database().ref('musicians/' + key).once('value').then(function (snapshot) {
+
+      let musician = snapshot.val();
+      musician.id = key;
+
+      const response = {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+          "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS 
+        },
+        body: JSON.stringify({
+          message: 'Musician Updated',
+          data: musician
         })
       };
 

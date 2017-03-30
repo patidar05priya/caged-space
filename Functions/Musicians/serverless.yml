@@ -15,4 +15,11 @@ functions:
           path: musicians
           method: post
           cors: true
+  updateMusician:
+    handler: handler.updateMusician
+    events:
+      - http:
+          path: musicians
+          method: put
+          cors: true
 

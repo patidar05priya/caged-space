@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { ConfigService } from '../providers/config-service';
 import 'rxjs/add/operator/map';
 import { MusicianModel } from '../models/musician';
-import { MusicianCreationModel } from '../models/musicianCreation';
+import { AddMusicianModel } from '../models/addMusician';
 import { AngularFire } from 'angularfire2';
 
 @Injectable()
@@ -55,7 +55,7 @@ export class MusicianService {
 
   }
 
-  public addMusician(model: MusicianCreationModel): Observable<MusicianModel> {
+  public addMusician(model: AddMusicianModel): Observable<MusicianModel> {
 
     return this._http.post(this._config.addMusicianUrl, model)
       .map(res => {

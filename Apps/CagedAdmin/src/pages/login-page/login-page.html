@@ -10,34 +10,42 @@
 
 <ion-content class="page-login page-body" padding>
 
-  <ion-card class="content-card">
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col col-sm-12 col-md-10 col-lg-8 col-xl-6>
 
-    <ion-card-content>
+        <ion-card class="content-card">
 
-      <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm.valid, loginForm.controls.email.value, loginForm.controls.password.value)">
+          <ion-card-content>
 
-        <div padding>
-          <ion-item secondary>
-            <ion-label floating>Email:</ion-label>
-            <ion-input type="email" formControlName="email"></ion-input>
-          </ion-item>
-        </div>
+            <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm.valid, loginForm.controls.email.value, loginForm.controls.password.value)">
 
-        <div padding>
-          <ion-item secondary>
-            <ion-label floating>Password:</ion-label>
-            <ion-input type="password" formControlName="password"></ion-input>
-          </ion-item>
-        </div>
+              <div padding>
+                <ion-item secondary>
+                  <ion-label floating>Email:</ion-label>
+                  <ion-input type="email" formControlName="email"></ion-input>
+                </ion-item>
+              </div>
 
-        <div padding>
-          <button ion-button block type="submit">Sign In</button>
-        </div>
+              <div padding>
+                <ion-item secondary>
+                  <ion-label floating>Password:</ion-label>
+                  <ion-input type="password" formControlName="password"></ion-input>
+                </ion-item>
+              </div>
 
-      </form>
+              <div padding>
+                <button ion-button block type="submit">Sign In</button>
+              </div>
 
-    </ion-card-content>
+            </form>
 
-  </ion-card>
+          </ion-card-content>
+
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

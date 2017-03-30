@@ -20,4 +20,6 @@ export class FunctionsConfigModel {
     // Musicians
     public addMusicianUrl: string = 'https://di78q88alh.execute-api.us-east-1.amazonaws.com/dev/musicians';
 
+    public updateMusicianUrl: string = 'https://di78q88alh.execute-api.us-east-1.amazonaws.com/dev/musicians';
+
 }
