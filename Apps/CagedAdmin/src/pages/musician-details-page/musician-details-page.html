@@ -6,8 +6,15 @@
 
 </ion-header>
 
-
 <ion-content padding>
+
+  <ion-fab bottom right *ngIf="!isEditing">
+    <button ion-fab (click)="toggleEditMusician()"><ion-icon name="create"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab bottom right *ngIf="isEditing">
+    <button color="danger" ion-fab (click)="toggleEditMusician()"><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
 
   <ion-grid>
     <ion-row justify-content-center>
@@ -15,17 +22,49 @@
 
         <ion-card>
           <img src="../../assets/thumbnail-totoro.png" />
+
           <ion-card-content>
-            <ion-card-title>
-              {{musician.name}}
-            </ion-card-title>
-            <p>
-              <strong>Instrument: </strong>{{musician.instrument}}
-            </p>
-            <p>
-              <strong>Description: </strong>{{musician.description}}
-            </p>
+
+            <div *ngIf="!isEditing">
+              <p>
+                <strong>Instrument: </strong>{{musician.instrument}}
+              </p>
+              <p>
+                <strong>Description: </strong>{{musician.description}}
+              </p>
+            </div>
+
+            <form *ngIf="isEditing" [formGroup]="editMusicianForm" (ngSubmit)="editMusician(editMusicianForm.valid)">
+
+              <div padding>
+                <ion-item secondary>
+                  <ion-label floating>Name:</ion-label>
+                  <ion-input type="text" formControlName="name"></ion-input>
+                </ion-item>
+              </div>
+
+              <div padding>
+                <ion-item secondary>
+                  <ion-label floating>Instrument:</ion-label>
+                  <ion-input type="text" formControlName="instrument"></ion-input>
+                </ion-item>
+              </div>
+
+              <div padding>
+                <ion-item secondary>
+                  <ion-label floating>Description:</ion-label>
+                  <ion-textarea type="text" formControlName="description"></ion-textarea>
+                </ion-item>
+              </div>
+
+              <div padding>
+                <button color="primary" ion-button block type="submit">Update Musician's Info</button>
+              </div>
+
+            </form>
+
           </ion-card-content>
+
         </ion-card>
 
       </ion-col>

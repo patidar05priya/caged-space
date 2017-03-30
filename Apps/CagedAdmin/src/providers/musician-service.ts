@@ -64,4 +64,13 @@ export class MusicianService {
 
   }
 
+  public editMusician(model: MusicianModel): Observable<MusicianModel> {
+
+    return this._http.put(this._config.addMusicianUrl, model)
+      .map(res => {
+        return this._MapMusician(res);
+      });
+
+  }
+
 }
