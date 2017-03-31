@@ -49,7 +49,7 @@ export class ConfigService {
     return this._functionsConfig.addMusicianUrl;
   }
 
-    get updateMusicianUrl(): string {
+  get updateMusicianUrl(): string {
     return this._functionsConfig.updateMusicianUrl;
   }
 
