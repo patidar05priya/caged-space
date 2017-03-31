@@ -11,15 +11,15 @@ module.exports.addMusician = (event, context, callback) => {
 
   let newKey = firebase.database().ref('musicians').push().key;
 
+  let musician = JSON.parse(event.body)
+  musician.id = newKey;
+
   var updates = {};
-  updates['/musicians/' + newKey] = JSON.parse(event.body);
+  updates['/musicians/' + newKey] = musician;
 
   firebase.database().ref().update(updates).then(function () {
 
     firebase.database().ref('musicians/' + newKey).once('value').then(function (snapshot) {
-
-      let musician = snapshot.val();
-      musician.id = newKey;
 
       const response = {
         statusCode: 200,
@@ -29,7 +29,7 @@ module.exports.addMusician = (event, context, callback) => {
         },
         body: JSON.stringify({
           message: 'Musician Created',
-          data: musician
+          data: snapshot.val()
         })
       };
 
@@ -57,9 +57,6 @@ module.exports.updateMusician = (event, context, callback) => {
 
     firebase.database().ref('musicians/' + key).once('value').then(function (snapshot) {
 
-      let musician = snapshot.val();
-      musician.id = key;
-
       const response = {
         statusCode: 200,
         headers: {
@@ -68,7 +65,7 @@ module.exports.updateMusician = (event, context, callback) => {
         },
         body: JSON.stringify({
           message: 'Musician Updated',
-          data: musician
+          data: snapshot.val()
         })
       };
 
