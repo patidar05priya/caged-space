@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Http, Response } from '@angular/http';
+import { ConfigService } from '../providers/config-service';
 import 'rxjs/add/operator/map';
 import { EventModel } from '../models/event';
 
@@ -17,7 +19,7 @@ export class EventService {
     events: Array<EventModel>
   };
 
-  constructor() {
+  constructor(private _http: Http, private _config: ConfigService) {
 
     this._eventStore = { events: new Array<EventModel>() };
 
@@ -40,10 +42,19 @@ export class EventService {
   }
 
   // Maps raw JSON data to an array of EventModels.
-  private _MapEvents(response: any): void {
+  private _MapEvents(response: any) {
 
-    var newEvents= new Array<EventModel>();
+    let newEvent: EventModel = response.json().data;
+
+    return newEvent;
 
   }
 
+   public editEvent(model: EventModel): Observable<EventModel> {
+
+    return this._http.put(this._config.updateEventUrl, model)
+      .map(res => {
+        return this._MapEvents(res);
+      });
+   }
 }

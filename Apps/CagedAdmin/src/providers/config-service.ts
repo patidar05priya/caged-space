@@ -53,4 +53,8 @@ export class ConfigService {
     return this._functionsConfig.updateMusicianUrl;
   }
 
+  get updateEventUrl(): string {
+    return this._functionsConfig.updateEventUrl;
+  }
+
 }
