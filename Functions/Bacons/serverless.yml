@@ -1,0 +1,31 @@
+
+service: musicians 
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: us-east-1
+
+functions:
+  addBeacon:
+    handler: handler.addBeacon
+    events:
+      - http:
+          path: beacon
+          method: post
+          cors: true
+  updateBeacon:
+    handler: handler.updateBeacon
+    events:
+      - http:
+          path: beacon
+          method: put
+          cors: true
+  deleteBeacon:
+    handler: handler.deleteBeacon
+    events:
+      - http:
+          path: beacon
+          meathod: post
+          cors: true
