@@ -77,6 +77,35 @@ module.exports.updateMusician = (event, context, callback) => {
 
 };
 
+
+module.exports.deleteMusician = (event, context, callback) => {
+
+context.callbackWaitsForEmptyEventLoop = false;  //<---Important
+
+  // Initialize Firebase
+  initializeFirebase();
+
+  let key = JSON.parse(event.body).id;
+  
+  firebase.database().ref('musicians/' + key).remove()  //<---- Firebase Delete Query
+
+  const response = {
+    statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+      "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS 
+    },
+    body: JSON.stringify({
+      message: 'User Deleted',
+      data: event.body
+    }),
+  };
+
+  callback(null, response);
+
+};
+
+
 let initializeFirebase = function () {
 
   let firebaseConfig = {
